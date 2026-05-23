@@ -6,4 +6,4 @@ Frontend and Flask backend are developed in VS Code.
 Model training backend is available in Google Colab.
 
 Colab Link:
-PASTE_YOUR_COLAB_LINK_HERE
+https://colab.research.google.com/drive/1nNTn0JRDC3HmM3oN4qSWyTaLJozqmnRd?usp=sharing
