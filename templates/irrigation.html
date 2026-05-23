@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Irrigation Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/irrigation.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/effects.css') }}">
+</head>
+<body>
+
+<nav>
+    <h2>AgroVision AI</h2>
+    <div>
+        <a href="/">Home</a>
+        <a href="/detect">Detect</a>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/history">History</a>
+        <a href="/advisory">Advisory</a>
+        <a href="/irrigation">Irrigation</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+
+        {% if current_user.is_authenticated %}
+    <a href="/logout">Logout</a>
+{% else %}
+    <a href="/login">Login</a>
+{% endif %}
+    </div>
+</nav>
+
+<section class="smart-water-page">
+    <div class="smart-water-bg-dot dot-one"></div>
+    <div class="smart-water-bg-dot dot-two"></div>
+
+    <div class="smart-water-wrapper">
+
+        <div class="smart-water-info">
+            <span class="smart-water-badge">Smart Water Planner</span>
+            <h1>Advanced Irrigation Calculator</h1>
+            <p>
+                Calculate crop water requirement and irrigation timing with a modern smart farming interface.
+            </p>
+
+            <div class="smart-water-feature-row">
+                <div>
+                    <h3>6+</h3>
+                    <p>Crops</p>
+                </div>
+                <div>
+                    <h3>AI</h3>
+                    <p>Guidance</p>
+                </div>
+                <div>
+                    <h3>Fast</h3>
+                    <p>Result</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="smart-water-panel">
+            <h2>Calculate Water Requirement</h2>
+
+            <form method="POST">
+                <label>Land Size</label>
+                <div class="smart-water-input">
+                    <input type="number" name="land_size" placeholder="Example: 500" required>
+                    <span>m²</span>
+                </div>
+
+                <label>Select Crop</label>
+                <select name="crop_type" required>
+                    <option value="tomato">Tomato</option>
+                    <option value="potato">Potato</option>
+                    <option value="pepper">Pepper</option>
+                    <option value="wheat">Wheat</option>
+                    <option value="rice">Rice</option>
+                    <option value="maize">Maize</option>
+                </select>
+
+                <button type="submit">Calculate Irrigation</button>
+            </form>
+
+            {% if result %}
+            <div class="smart-water-result">
+                <h2>Irrigation Plan</h2>
+
+                <div class="smart-water-result-grid">
+                    <div>
+                        <span>Crop</span>
+                        <h3>{{ result.crop }}</h3>
+                    </div>
+                    <div>
+                        <span>Land</span>
+                        <h3>{{ result.land_size }} m²</h3>
+                    </div>
+                    <div>
+                        <span>Water</span>
+                        <h3>{{ result.water }} L</h3>
+                    </div>
+                </div>
+
+                <div class="smart-water-timing">
+                    <span>Recommended Timing</span>
+                    <p>{{ result.timing }}</p>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+    </div>
+</section>
+
+</body>
+</html>

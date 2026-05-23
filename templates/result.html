@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/effects.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/report.css') }}">
+</head>
+<body>
+
+<nav>
+    <h2>AgroVision AI</h2>
+    <div>
+        <a href="/">Home</a>
+        <a href="/detect">Detect Again</a>
+        <a href="/history">History</a>
+        <a href="/advisory">Advisory</a>
+        <a href="/irrigation">Irrigation</a>
+    </div>
+</nav>
+
+<section class="result-section">
+    <div class="result-card tilt-card neon-glow">
+        <img src="{{ image_path }}" alt="Leaf Image">
+
+        <div>
+            <h1>{{ info.title }}</h1>
+            <h3>Confidence: {{ confidence }}%</h3>
+
+            <p><b>Cause:</b> {{ info.cause }}</p>
+            <p><b>Symptoms:</b> {{ info.symptoms }}</p>
+            <p><b>Treatment:</b> {{ info.treatment }}</p>
+            <p><b>Fertilizer:</b> {{ info.fertilizer }}</p>
+            <p><b>Prevention:</b> {{ info.prevention }}</p>
+
+            <button type="button" onclick="readAdvice()" class="voice-btn">
+                🔊 Read Advice
+            </button>
+
+            <button type="button" onclick="stopAdvice()" class="voice-btn stop-btn">
+                ⏹ Stop
+            </button>
+
+            <a
+                href="/download_report?disease={{ info.title }}&confidence={{ confidence }}&cause={{ info.cause }}&symptoms={{ info.symptoms }}&treatment={{ info.treatment }}&fertilizer={{ info.fertilizer }}&prevention={{ info.prevention }}&image={{ image_path }}"
+                class="pdf-btn">
+                📄 Download Report
+            </a>
+        </div>
+    </div>
+</section>
+
+<script>
+const adviceText = `Disease detected is {{ info.title | safe }}.
+Confidence is {{ confidence }} percent.
+Cause: {{ info.cause | safe }}.
+Symptoms: {{ info.symptoms | safe }}.
+Treatment: {{ info.treatment | safe }}.
+Fertilizer advice: {{ info.fertilizer | safe }}.
+Prevention: {{ info.prevention | safe }}.`;
+
+function readAdvice(){
+    if (!("speechSynthesis" in window)) {
+        alert("Sorry, your browser does not support voice reading.");
+        return;
+    }
+
+    window.speechSynthesis.cancel();
+
+    let speech = new SpeechSynthesisUtterance(adviceText);
+    speech.lang = "en-IN";
+    speech.rate = 0.85;
+    speech.pitch = 1;
+    speech.volume = 1;
+
+    setTimeout(function(){
+        window.speechSynthesis.speak(speech);
+    }, 200);
+}
+
+function stopAdvice(){
+    window.speechSynthesis.cancel();
+}
+</script>
+
+</body>
+</html>

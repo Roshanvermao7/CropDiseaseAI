@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Farm Advisory</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/effects.css') }}">
+</head>
+<body>
+
+<nav>
+    <h2>AgroVision AI</h2>
+    <div>
+        <a href="/">Home</a>
+        <a href="/detect">Detect</a>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/history">History</a>
+        <a href="/advisory">Advisory</a>
+        <a href="/irrigation">Irrigation</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+
+        {% if current_user.is_authenticated %}
+    <a href="/logout">Logout</a>
+{% else %}
+    <a href="/login">Login</a>
+{% endif %}
+    </div>
+</nav>
+
+<section class="advisory">
+    <h1>Farm Advisory System</h1>
+    <p class="section-subtitle">Tap any card to open detailed farming advice.</p>
+
+    <div class="features">
+        <a href="{{ url_for('advice_detail', topic='watering') }}" class="card advice-link">
+            <h3>Watering Advice</h3>
+            <p>Smart irrigation and water-saving guidance.</p>
+        </a>
+
+        <a href="{{ url_for('advice_detail', topic='fertilizer') }}" class="card advice-link">
+            <h3>Fertilizer Advice</h3>
+            <p>NPK, compost, and crop nutrition tips.</p>
+        </a>
+
+        <a href="{{ url_for('advice_detail', topic='pest') }}" class="card advice-link">
+            <h3>Pest Control</h3>
+            <p>Natural and chemical pest prevention guidance.</p>
+        </a>
+
+        <a href="{{ url_for('advice_detail', topic='soil') }}" class="card advice-link">
+            <h3>Soil Health</h3>
+            <p>Improve soil fertility and crop strength.</p>
+        </a>
+    </div>
+</section>
+
+</body>
+</html>

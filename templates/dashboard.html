@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/effects.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<nav>
+    <h2>AgroVision AI</h2>
+    <div>
+        <a href="/">Home</a>
+        <a href="/detect">Detect</a>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/history">History</a>
+        <a href="/advisory">Advisory</a>
+        <a href="/irrigation">Irrigation</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+
+        {% if current_user.is_authenticated %}
+    <a href="/logout">Logout</a>
+{% else %}
+    <a href="/login">Login</a>
+{% endif %}
+    </div>
+</nav>
+
+<section class="pro-dashboard">
+    <div class="pro-dashboard-header">
+        <span>AI Analytics Center</span>
+        <h1>Crop Disease Dashboard</h1>
+        <p>Track total scans, confidence score, disease types, and disease detection analytics.</p>
+    </div>
+
+    <div class="pro-stats-grid">
+        <div class="pro-stat-card tilt-card neon-glow">
+            <h3>Total Scans</h3>
+            <h2>{{ total_scans }}</h2>
+            <p>Leaf images analyzed</p>
+        </div>
+
+        <div class="pro-stat-card">
+            <h3>Average Confidence</h3>
+            <h2>{{ avg_confidence }}%</h2>
+            <p>AI prediction confidence</p>
+        </div>
+
+        <div class="pro-stat-card">
+            <h3>Disease Types</h3>
+            <h2>{{ disease_counts|length }}</h2>
+            <p>Unique predictions found</p>
+        </div>
+    </div>
+
+    <div class="pro-dashboard-grid">
+        <div class="pro-chart-card">
+            <h2>Disease Detection Chart</h2>
+            <div class="chart-box">
+                <canvas id="diseaseChart"></canvas>
+            </div>
+        </div>
+
+        <div class="pro-list-card">
+            <h2>Disease Cards</h2>
+
+            {% if disease_counts %}
+                {% for disease in disease_counts %}
+                <div class="pro-disease-card tilt-card neon-glow">
+                    <div>
+                        <h3>{{ disease[0].replace("_", " ") }}</h3>
+                        <p>{{ disease[1] }} scans detected</p>
+                    </div>
+                    <span>{{ disease[1] }}</span>
+                </div>
+                {% endfor %}
+            {% else %}
+                <p class="pro-no-data">No scans yet. Upload leaf images first.</p>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<script>
+const chartLabels = JSON.parse('{{ labels_chart | tojson | safe }}');
+const chartData = JSON.parse('{{ data_chart | tojson | safe }}');
+
+const ctx = document.getElementById("diseaseChart");
+
+new Chart(ctx, {
+    type: "doughnut",
+    data: {
+        labels: chartLabels,
+        datasets: [{
+            data: chartData,
+            borderWidth: 2
+        }]
+    }
+});
+</script>
+
+const ctx = document.getElementById("diseaseChart");
+
+new Chart(ctx, {
+    type: "doughnut",
+    data: {
+        labels: chartLabels,
+        datasets: [{
+            data: chartData,
+            borderWidth: 2,
+            hoverOffset: 15
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                position: "bottom",
+                labels: {
+                    color: "#eaffef",
+                    padding: 18
+                }
+            }
+        }
+    }
+});
+</script>
+
+</body>
+</html>

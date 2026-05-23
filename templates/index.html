@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crop Disease AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/effects.css') }}">
+</head>
+<body>
+
+<nav>
+    <h2>AgroVision AI</h2>
+    <div>
+        <a href="/">Home</a>
+        <a href="/detect">Detect</a>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/history">History</a>
+        <a href="/advisory">Advisory</a>
+        <a href="/irrigation">Irrigation</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+
+        {% if current_user.is_authenticated %}
+    <a href="/logout">Logout</a>
+{% else %}
+    <a href="/login">Login</a>
+{% endif %}
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Crop Disease Detection and Farm Advisory System</h1>
+        <p>Upload a leaf image and get instant AI-based disease prediction with farming guidance.</p>
+        <a href="/detect" class="btn">Start Detection</a>
+    </div>
+</section>
+
+<section class="features">
+    <div class="card">AI Disease Detection</div>
+    <div class="card">Treatment Advice</div>
+    <div class="card">Fertilizer Suggestion</div>
+    <div class="card">Prevention Tips</div>
+</section>
+
+</body>
+</html>

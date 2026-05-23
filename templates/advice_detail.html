@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ advice.title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/effects.css') }}">
+</head>
+<body>
+
+<nav>
+    <h2>AgroVision AI</h2>
+    <div>
+        <a href="/">Home</a>
+        <a href="/detect">Detect</a>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/history">History</a>
+        <a href="/advisory">Advisory</a>
+        <a href="/irrigation">Irrigation</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+
+        {% if current_user.is_authenticated %}
+    <a href="/logout">Logout</a>
+{% else %}
+    <a href="/login">Login</a>
+{% endif %}
+    </div>
+</nav>
+
+<section class="advice-detail-page">
+    <div class="advice-detail-card">
+        <div class="media-box">
+
+    <video autoplay muted loop playsinline>
+        <source src="{{ url_for('static', filename='videos/' + advice.video) }}" type="video/mp4">
+    </video>
+
+    <img src="{{ url_for('static', filename='images/' + advice.image) }}" alt="{{ advice.title }}">
+
+</div>
+
+        <div class="advice-content">
+            <h1>{{ advice.title }}</h1>
+            <p class="section-subtitle">Detailed farming guidance for better crop care.</p>
+
+            <div class="advice-list">
+                {% for point in advice.points %}
+                <div class="advice-point">
+                    <span>{{ loop.index }}</span>
+                    <p>{{ point }}</p>
+                </div>
+                {% endfor %}
+            </div>
+
+            <a href="/advisory" class="btn">Back to Advisory</a>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

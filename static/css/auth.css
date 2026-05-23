@@ -1,0 +1,96 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', sans-serif;
+}
+
+.auth-page{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:
+        linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.88)),
+        url("../images/farm.jpg");
+    background-size:cover;
+    background-position:center;
+    padding:30px;
+}
+
+.auth-card{
+    width:100%;
+    max-width:460px;
+    padding:45px;
+    border-radius:35px;
+    background:rgba(255,255,255,0.10);
+    border:1px solid rgba(255,255,255,0.22);
+    backdrop-filter:blur(22px);
+    box-shadow:0 30px 90px rgba(0,0,0,0.55);
+    animation:fadeUp 0.9s ease;
+}
+
+.auth-card h1{
+    color:#7CFF9B;
+    font-size:40px;
+    margin-bottom:12px;
+}
+
+.auth-card p{
+    color:#eaffef;
+    line-height:1.6;
+    margin-bottom:25px;
+}
+
+.auth-card form{
+    display:grid;
+    gap:18px;
+}
+
+.auth-card input{
+    width:100%;
+    padding:16px;
+    border:none;
+    outline:none;
+    border-radius:18px;
+    background:rgba(255,255,255,0.95);
+    font-size:16px;
+}
+
+.auth-card button{
+    padding:15px;
+    border:none;
+    border-radius:40px;
+    background:linear-gradient(135deg,#7CFF9B,#00b359);
+    color:#001b0b;
+    font-weight:900;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.auth-card button:hover{
+    transform:translateY(-4px);
+    box-shadow:0 15px 40px rgba(124,255,155,0.35);
+}
+
+.auth-link{
+    margin-top:25px;
+    text-align:center;
+}
+
+.auth-link a{
+    color:#7CFF9B;
+    font-weight:800;
+    text-decoration:none;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}

@@ -1,0 +1,136 @@
+{
+  "Pepper__bell___Bacterial_spot": {
+    "title": "Pepper Bell Bacterial Spot",
+    "cause": "This disease is caused by bacterial infection and spreads rapidly in warm and wet conditions.",
+    "symptoms": "Dark brown spots appear on leaves and fruits. Leaves may turn yellow and dry.",
+    "treatment": "Remove infected leaves and apply copper-based bactericide.",
+    "fertilizer": "Use balanced NPK fertilizer with compost.",
+    "prevention": "Avoid overhead watering and use disease-free seeds."
+  },
+
+  "Pepper__bell___healthy": {
+    "title": "Healthy Pepper Leaf",
+    "cause": "No disease detected.",
+    "symptoms": "Leaves are green and healthy.",
+    "treatment": "No treatment required.",
+    "fertilizer": "Use organic compost and balanced fertilizer.",
+    "prevention": "Maintain regular watering and proper sunlight."
+  },
+
+  "Potato___Early_blight": {
+    "title": "Potato Early Blight",
+    "cause": "Caused by Alternaria fungus during warm and humid weather.",
+    "symptoms": "Brown circular spots with yellow edges appear on leaves.",
+    "treatment": "Remove infected leaves and spray fungicide.",
+    "fertilizer": "Use potassium-rich fertilizer.",
+    "prevention": "Avoid excess moisture and rotate crops."
+  },
+
+  "Potato___healthy": {
+    "title": "Healthy Potato Leaf",
+    "cause": "No disease detected.",
+    "symptoms": "Leaf appears fresh and green.",
+    "treatment": "No treatment required.",
+    "fertilizer": "Use balanced fertilizer and compost.",
+    "prevention": "Inspect crop regularly and maintain clean field."
+  },
+
+  "Potato___Late_blight": {
+    "title": "Potato Late Blight",
+    "cause": "Caused by Phytophthora infestans fungus in wet conditions.",
+    "symptoms": "Dark water-soaked spots appear on leaves and stems.",
+    "treatment": "Remove infected plants and spray fungicide.",
+    "fertilizer": "Apply balanced fertilizer with potassium.",
+    "prevention": "Avoid waterlogging and improve air circulation."
+  },
+
+  "Tomato___Target_Spot": {
+    "title": "Tomato Target Spot",
+    "cause": "Fungal infection caused by Corynespora cassiicola.",
+    "symptoms": "Circular brown target-like spots appear on leaves.",
+    "treatment": "Use recommended fungicide and remove infected leaves.",
+    "fertilizer": "Use balanced NPK fertilizer.",
+    "prevention": "Keep field dry and improve ventilation."
+  },
+
+  "Tomato_Tomato_mosaic_virus": {
+    "title": "Tomato Mosaic Virus",
+    "cause": "Viral infection spread by contaminated tools and insects.",
+    "symptoms": "Leaves become mottled, curled, and distorted.",
+    "treatment": "Remove infected plants immediately.",
+    "fertilizer": "Use organic fertilizer for stronger immunity.",
+    "prevention": "Disinfect tools and control insect vectors."
+  },
+
+  "Tomato_Tomato_YellowLeaf__Curl_Virus": {
+    "title": "Tomato Yellow Leaf Curl Virus",
+    "cause": "Virus spread mainly by whiteflies.",
+    "symptoms": "Leaves curl upward and turn yellow.",
+    "treatment": "Remove infected plants and control whiteflies.",
+    "fertilizer": "Use balanced nutrients and micronutrients.",
+    "prevention": "Use insect nets and resistant varieties."
+  },
+
+  "Tomato_Bacterial_spot": {
+    "title": "Tomato Bacterial Spot",
+    "cause": "Bacterial infection during wet and humid weather.",
+    "symptoms": "Small dark spots appear on leaves and fruits.",
+    "treatment": "Spray copper bactericide and remove infected leaves.",
+    "fertilizer": "Use balanced fertilizer with compost.",
+    "prevention": "Avoid overhead irrigation."
+  },
+
+  "Tomato_Early_blight": {
+    "title": "Tomato Early Blight",
+    "cause": "Fungal disease caused by Alternaria solani.",
+    "symptoms": "Brown spots with concentric rings appear on leaves.",
+    "treatment": "Apply fungicide and remove infected leaves.",
+    "fertilizer": "Use calcium and balanced NPK fertilizer.",
+    "prevention": "Avoid wet leaves and rotate crops."
+  },
+
+  "Tomato_healthy": {
+    "title": "Healthy Tomato Leaf",
+    "cause": "No disease detected.",
+    "symptoms": "Leaves appear healthy and green.",
+    "treatment": "No treatment required.",
+    "fertilizer": "Use compost and balanced fertilizer.",
+    "prevention": "Maintain proper watering and sunlight."
+  },
+
+  "Tomato_Late_blight": {
+    "title": "Tomato Late Blight",
+    "cause": "Caused by fungal infection during cool and wet weather.",
+    "symptoms": "Large dark patches appear on leaves and stems.",
+    "treatment": "Remove infected plants and use fungicide.",
+    "fertilizer": "Use potassium-rich fertilizer.",
+    "prevention": "Improve drainage and avoid overcrowding."
+  },
+
+  "Tomato_Leaf_Mold": {
+    "title": "Tomato Leaf Mold",
+    "cause": "Fungal disease caused by excess humidity.",
+    "symptoms": "Yellow spots form on upper leaf surface.",
+    "treatment": "Use fungicide and improve ventilation.",
+    "fertilizer": "Apply balanced nutrients.",
+    "prevention": "Reduce humidity and maintain spacing."
+  },
+
+  "Tomato_Septoria_leaf_spot": {
+    "title": "Tomato Septoria Leaf Spot",
+    "cause": "Caused by Septoria fungus in wet weather.",
+    "symptoms": "Small circular spots with gray centers appear.",
+    "treatment": "Remove infected leaves and spray fungicide.",
+    "fertilizer": "Use balanced fertilizer.",
+    "prevention": "Avoid overhead watering."
+  },
+
+  "Tomato_Spider_mites_Two_spotted_spider_mite": {
+    "title": "Tomato Spider Mite",
+    "cause": "Spider mites attack plants during hot and dry weather.",
+    "symptoms": "Tiny yellow spots and webbing appear on leaves.",
+    "treatment": "Spray neem oil or miticide.",
+    "fertilizer": "Use organic compost for plant strength.",
+    "prevention": "Keep plants hydrated and inspect leaves regularly."
+  }
+}

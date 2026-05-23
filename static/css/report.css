@@ -1,0 +1,17 @@
+.pdf-btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:15px 28px;
+    border-radius:18px;
+    background:linear-gradient(135deg,#ffcc00,#ff8c00);
+    color:black;
+    text-decoration:none;
+    font-weight:800;
+    transition:0.35s;
+    box-shadow:0 15px 35px rgba(255,140,0,0.35);
+}
+
+.pdf-btn:hover{
+    transform:translateY(-5px);
+    box-shadow:0 20px 45px rgba(255,140,0,0.55);
+}

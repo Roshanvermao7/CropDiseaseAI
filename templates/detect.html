@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detect Disease</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/effects.css') }}">
+    
+</head>
+<body>
+    <div class="ai-loader" id="aiLoader">
+    <div class="scan-circle"></div>
+    <div class="scan-line"></div>
+    <h2>AI is analyzing leaf...</h2>
+    <p>Please wait while disease prediction is running</p>
+</div>
+
+<nav>
+    <h2>AgroVision AI</h2>
+    <div>
+        <a href="/">Home</a>
+        <a href="/detect">Detect</a>
+        <a href="/history">History</a>
+        <a href="/advisory">Advisory</a>
+
+        {% if current_user.is_authenticated %}
+    <a href="/logout">Logout</a>
+{% else %}
+    <a href="/login">Login</a>
+{% endif %}
+    </div>
+</nav>
+
+<section class="upload-section">
+    <div class="upload-box">
+        <h1>Upload Leaf Image</h1>
+        <p>Select a clear leaf image for accurate prediction.</p>
+
+        <form action="/predict" method="POST" enctype="multipart/form-data" onsubmit="showAILoader()">
+            <input type="file" name="image" required>
+            <button type="submit">Analyze Disease</button>
+        </form>
+    </div>
+</section>
+
+<script>
+function showAILoader(){
+    document.getElementById("aiLoader").style.display = "flex";
+}
+</script>
+
+</body>
+</html>
