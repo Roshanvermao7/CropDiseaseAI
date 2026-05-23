@@ -80,7 +80,10 @@ init_db()
 UPLOAD_FOLDER = "static/uploads"
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
-model = tf.keras.models.load_model("model.h5")
+model = tf.keras.models.load_model(
+    "model.keras",
+    compile=False
+)
 
 with open("labels.json", "r") as f:
     labels = json.load(f)
